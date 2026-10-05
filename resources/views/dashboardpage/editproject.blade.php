@@ -15,42 +15,37 @@
         @csrf
         @method('PUT')
 
-        <label for="name">Project name</label>
-        <input
-            id="name"
-            type="text"
-            name="name"
-            value="{{ old('name', $project->name) }}"
-            required
-        >
+        <p>
+            <label for="name">Project name</label><br>
+            <input id="name" type="text" name="name"
+                   value="{{ old('name', $project->name) }}" required>
+        </p>
 
-        <br><br>
+        <p>
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description"
+                      rows="5" required>{{ old('description', $project->description) }}</textarea>
+        </p>
 
-        <label for="description">Description</label>
-        <textarea id="description" name="description" required>{{ old('description', $project->description) }}</textarea>
+        <p>
+            <label for="technologies">Technologies (comma-separated)</label><br>
+            <input id="technologies" type="text" name="technologies"
+                   value="{{ old('technologies', $project->technologies) }}"
+                   placeholder="Laravel, PHP, SQLite">
+        </p>
 
-        <br><br>
+        <p>
+            <label for="github_url">GitHub URL (optional)</label><br>
+            <input id="github_url" type="url" name="github_url"
+                   value="{{ old('github_url', $project->github_url) }}">
+        </p>
+
+        <p>
+            <label for="live_url">Live Demo URL (optional)</label><br>
+            <input id="live_url" type="url" name="live_url"
+                   value="{{ old('live_url', $project->live_url) }}">
+        </p>
 
         <button type="submit">Save Changes</button>
-
-        <label for="github_url">GitHub URL (optional)</label>
-<input
-    id="github_url"
-    type="url"
-    name="github_url"
-    value="{{ old('github_url', $project->github_url) }}"
->
-
-<br><br>
-
-<label for="live_url">Live Demo URL (optional)</label>
-<input
-    id="live_url"
-    type="url"
-    name="live_url"
-    value="{{ old('live_url', $project->live_url) }}"
->
-
-<br><br>
     </form>
 @endsection

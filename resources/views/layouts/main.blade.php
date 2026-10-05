@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Computer Engineering student portfolio: projects, skills, and contact information.">
-    <title>My Portfolio</title>
+    <meta name="description" content="Aman Kumar is an Advanced Diploma in Computer Engineering student learning web development and building Laravel projects.">
+<meta name="author" content="Aman Kumar">
+<meta name="theme-color" content="#0b1020">
 
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aman Kumar | Portfolio">
+<meta property="og:description" content="Explore Aman Kumar’s projects and web development work.">
+
+<title>Aman Kumar | Portfolio</title>
+    
     <style>
         :root {
             color-scheme: dark;
@@ -165,19 +170,91 @@
     background: transparent;
     border: 1px solid var(--border);
 }
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    margin: 0;
+}
+
+.project-card h2 {
+    margin-top: 0;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.project-links a:hover {
+    color: var(--background);
+    background: var(--accent);
+}
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.project-technologies span {
+    padding: 4px 10px;
+    color: var(--accent);
+    background: #0b1020;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: .85rem;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+#home, #about, #projects, #contact {
+    scroll-margin-top: 80px;
+}
 
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url('/') }}">Home</a>
-        <a href="{{ url('/about') }}">About</a>
-        <a href="{{ url('/projects') }}">Projects</a>
-        <a href="{{ url('/contact') }}">Contact</a>
+    <a href="{{ url('/') }}">Home</a>
+    <a href="{{ url('/about') }}">About</a>
+    <a href="{{ url('/projects') }}">Projects</a>
+    <a href="{{ url('/contact') }}">Contact</a>
     </nav>
 
     <main>
         @yield('content')
     </main>
+    <footer class="site-footer">
+    <p>© {{ date('Y') }} Aman Kumar · Built with Laravel</p>
+
+    <div>
+        <a href="https://github.com/kua528985-cloud/my-portfolio"
+           target="_blank"
+           rel="noopener noreferrer">
+            GitHub
+        </a>
+        <a href="mailto:kua528985@gmail.com">Email</a>
+    </div>
+</footer>
 </body>
 </html>

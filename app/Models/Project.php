@@ -11,5 +11,6 @@ protected $fillable = [
     'description',
     'github_url',
     'live_url',
+    'technologies'
 ];
 }

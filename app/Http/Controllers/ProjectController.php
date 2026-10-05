@@ -14,6 +14,15 @@ class ProjectController extends Controller
 
     return view('projects', compact('projects'));
 }
+
+public function home()
+{
+    $projects = Project::latest()->get();
+
+    return view('home', compact('projects'));
+}
+
+
     public function index()
     {
         $projects = Project::latest()->get();
@@ -33,6 +42,7 @@ class ProjectController extends Controller
             'description' => 'required|string',
             'github_url' => 'nullable|url',
             'live_url' => 'nullable|url',
+            'technologies' => 'nullable|string|max:255',
         ]);
 
         Project::create($data);
@@ -54,6 +64,9 @@ class ProjectController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'github_url' => 'nullable|url',
+            'live_url' => 'nullable|url',
+            'technologies' => 'nullable|string|max:255',
         ]);
 
         $project->update($data);
